@@ -1,6 +1,6 @@
 import Image from "next/image";
-import { NavBarComp } from "../components/NavBar";
-import { WsSticky } from "../components/WsSticky";
+import { NavBarComp } from "../components/navBar";
+import { WsSticky } from "../components/wsSticky";
 import { Card } from "flowbite-react";
 import Link from "next/link";
 
