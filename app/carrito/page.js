@@ -8,16 +8,17 @@ import { Table } from "flowbite-react";
 import { useEffect, useState } from "react";
 
 export default function Carrito() {
-  const [productos, setProductos] = useState(
-    JSON.parse(localStorage.getItem("productos")) || []
-  );
-  useEffect(() => {
-    console.log("🚀 ~ Carrito ~ productos:", productos)
-  
-    
-  }, [])
-  
+  const [productos, setProductos] = useState([]);
 
+  useEffect(() => {
+    return () => {
+      setProductos(JSON.parse(localStorage.getItem("productos")));
+      console.log(productos);
+    };
+  }, []);
+  const eliminarProducto = ()=>{
+    
+  }
   return (
     <div>
       <NavBarComp></NavBarComp>
@@ -45,6 +46,25 @@ export default function Carrito() {
                   </Button>
                 </Table.Cell>
               </Table.Row>
+              {productos.map((pr) => {
+                return (
+                  <Table.Row
+                    key={pr.id}
+                    className="bg-white dark:border-gray-700 dark:bg-gray-800"
+                  >
+                    <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
+                      {pr.nombre}
+                    </Table.Cell>
+                    <Table.Cell>{pr.cantidad}</Table.Cell>
+                    <Table.Cell>${pr.precio}</Table.Cell>
+                    <Table.Cell>
+                      <Button onClick={()=>eliminarProducto} color="failure" pill>
+                        Eliminar
+                      </Button>
+                    </Table.Cell>
+                  </Table.Row>
+                );
+              })}
             </Table.Body>
           </Table>
         </div>

@@ -7,7 +7,7 @@ import React, { useState } from "react";
 
 export default function ProductCard(props) {
   const [cantidad, setCantidad] = useState(0);
-  
+
   const addProduct = (nombre, precio, id) => {
     const producto = { nombre, precio, cantidad, id };
     const productosGuardados =
@@ -37,13 +37,13 @@ export default function ProductCard(props) {
       <div className="px-5 pb-5">
         <a>
           <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
-            Bolsa Plastica 10 KG
+            {props.name}
           </h5>
         </a>
 
         <div className="flex items-center gap-4 justify-between">
           <span className="text-3xl font-bold text-gray-900 dark:text-white">
-            $1.5
+            ${props.precio}
           </span>
           <TextInput
             type="number"
