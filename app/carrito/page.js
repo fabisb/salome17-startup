@@ -16,9 +16,15 @@ export default function Carrito() {
       console.log(productos);
     };
   }, []);
-  const eliminarProducto = ()=>{
-    
-  }
+  const eliminarProducto = (id) => {
+    const productoEliminado = productos.filter((prod) => prod.id !== id);
+    console.log(
+      "🚀 ~ eliminarProducto ~ productoEliminado:",
+      productoEliminado
+    );
+    setProductos(productoEliminado);
+    localStorage.setItem("productos", JSON.stringify(productoEliminado));
+  };
   return (
     <div>
       <NavBarComp></NavBarComp>
@@ -34,37 +40,68 @@ export default function Carrito() {
               </Table.HeadCell>
             </Table.Head>
             <Table.Body className="divide-y">
-              <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
-                <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                  Bolsa 10KG
-                </Table.Cell>
-                <Table.Cell>2</Table.Cell>
-                <Table.Cell>$10</Table.Cell>
-                <Table.Cell>
-                  <Button color="failure" pill>
-                    Eliminar
-                  </Button>
-                </Table.Cell>
-              </Table.Row>
-              {productos.map((pr) => {
-                return (
-                  <Table.Row
-                    key={pr.id}
-                    className="bg-white dark:border-gray-700 dark:bg-gray-800"
+              {productos.length > 0 ? (
+                productos.map((pr) => {
+                  return (
+                    <Table.Row
+                      key={pr.id}
+                      className="bg-white dark:border-gray-700 dark:bg-gray-800"
+                    >
+                      <Table.Cell className="whitespace-nowrap font-semibold text-lg text-gray-900 dark:text-white">
+                        {pr.nombre}
+                      </Table.Cell>
+                      <Table.Cell className="font-medium">
+                        {pr.cantidad}
+                      </Table.Cell>
+                      <Table.Cell className="font-medium">
+                        ${pr.precio}
+                      </Table.Cell>
+                      <Table.Cell>
+                        <Button
+                          onClick={() => eliminarProducto(pr.id)}
+                          color="failure"
+                          pill
+                        >
+                          Eliminar
+                        </Button>
+                      </Table.Cell>
+                    </Table.Row>
+                  );
+                })
+              ) : (
+                <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
+                  <Table.Cell
+                    colSpan={"4"}
+                    className="whitespace-nowrap font-medium text-2xl text-gray-900 dark:text-white"
                   >
-                    <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                      {pr.nombre}
-                    </Table.Cell>
-                    <Table.Cell>{pr.cantidad}</Table.Cell>
-                    <Table.Cell>${pr.precio}</Table.Cell>
-                    <Table.Cell>
-                      <Button onClick={()=>eliminarProducto} color="failure" pill>
-                        Eliminar
-                      </Button>
-                    </Table.Cell>
-                  </Table.Row>
-                );
-              })}
+                    Agregue Productos al carrito para continuar!
+                  </Table.Cell>
+                </Table.Row>
+              )}
+              {productos.length > 0 ? (
+                <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
+                  <Table.Cell></Table.Cell>
+                  <Table.Cell className="whitespace-nowrap font-medium text-lg text-gray-900 dark:text-white">
+                    Total:
+                  </Table.Cell>
+                  <Table.Cell
+                    colSpan={"2"}
+                    className="whitespace-nowrap font-bold text-lg
+                     text-gray-900 dark:text-white"
+                  >
+                    {productos
+                      .map(
+                        (pr) =>
+                          parseFloat(pr.precio).toFixed(2) *
+                          parseInt(pr.cantidad)
+                      )
+                      .reduce((a, b) => a + b)}
+                    $
+                  </Table.Cell>
+                </Table.Row>
+              ) : (
+                <></>
+              )}
             </Table.Body>
           </Table>
         </div>
