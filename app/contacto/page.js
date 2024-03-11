@@ -14,7 +14,7 @@ export default function Contacto() {
             <Card
               className="max-w-sm"
               imgAlt="Meaningful alt text for an image that is not purely decorative"
-              imgSrc="/img/qr1.jpg"
+              imgSrc="/img/qrInsta.png"
             >
               <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                 Instagram
