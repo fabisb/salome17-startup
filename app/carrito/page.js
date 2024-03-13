@@ -19,38 +19,40 @@ export default function Carrito() {
   }, []);
   const eliminarProducto = (id) => {
     const productoEliminado = productos.filter((prod) => prod.id !== id);
-    console.log(
-      "🚀 ~ eliminarProducto ~ productoEliminado:",
-      productoEliminado
-    );
     setProductos(productoEliminado);
     localStorage.setItem("productos", JSON.stringify(productoEliminado));
   };
   const EnviarPedido = () => {
-    console.log(productos);
-    /*   {
-      "nombre": "Bolsa 1",
-      "precio": "10",
-      "cantidad": "1",
-      "id": "1"
-  } */
-    const pedido = productos.map(
-      (pr) =>
-        `${pr.id}. ${pr.nombre}: Cantidad: ${pr.cantidad} - Precio Unitario: ${
-          pr.precio
-        }$ - TOTAL: ${(pr.precio * pr.cantidad).toFixed(2)}`
-    );
-    console.log("🚀 ~ EnviarPedido ~ pedido:", pedido);
-    const pedidoCadena =
-      `Hola! Quiero realizar un pedido desde su pagina web, estos son los productos:` +
-      "\n \n" +
-      pedido.join("\n \n") +
-      "\n \n" +
-      `TOTAL PEDIDO: ${productos
-        .map((pr) => parseFloat(pr.precio).toFixed(2) * parseInt(pr.cantidad))
-        .reduce((a, b) => a + b)}$`;
-    console.log("🚀 ~ EnviarPedido ~ pedidoCadena:", pedidoCadena);
-    router.push("https://wa.me/584126443690?text=" + encodeURI(pedidoCadena));
+    try {
+      if (productos.length == 0) {
+        return alert("Agregue productos para continuar");
+      }
+      const pedido = productos.map(
+        (pr) =>
+          `${pr.id}. ${pr.nombre}: Cantidad: ${
+            pr.cantidad
+          } - Precio Unitario: ${pr.precio}$ - TOTAL: ${(
+            pr.precio * pr.cantidad
+          ).toFixed(2)}`
+      );
+      console.log("🚀 ~ EnviarPedido ~ pedido:", pedido);
+      const pedidoCadena =
+        `Hola! Quiero realizar un pedido desde su pagina web, estos son los productos:` +
+        "\n \n" +
+        pedido.join("\n \n") +
+        "\n \n" +
+        `TOTAL PEDIDO: ${productos
+          .map((pr) => parseFloat(pr.precio).toFixed(2) * parseInt(pr.cantidad))
+          .reduce((a, b) => a + b)}$`;
+      console.log("🚀 ~ EnviarPedido ~ pedidoCadena:", pedidoCadena);
+      window.open(
+        "https://wa.me/584126443690?text=" + encodeURI(pedidoCadena),
+        "_blank"
+      );
+    } catch (error) {
+      console.log(error);
+      return alert("Ha ocurrido un error");
+    }
   };
   return (
     <div>

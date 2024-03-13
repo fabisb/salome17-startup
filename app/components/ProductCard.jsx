@@ -9,6 +9,11 @@ export default function ProductCard(props) {
   const [cantidad, setCantidad] = useState(0);
 
   const addProduct = (nombre, precio, id) => {
+    try {
+      
+      if (cantidad <= 0 ) {
+        return alert('Ingrese una cantidad valida')
+    }
     const producto = { nombre, precio, cantidad, id };
     const productosGuardados =
       JSON.parse(localStorage.getItem("productos")) || [];
@@ -21,6 +26,10 @@ export default function ProductCard(props) {
     // Guarda el arreglo actualizado en el localStorage
     localStorage.setItem("productos", JSON.stringify(productosGuardados));
     console.log("🚀 ~ addProduct ~ productosGuardados:", productosGuardados);
+  } catch (error) {
+    console.log(error);
+    return alert('Ha ocurrido un error');
+  }
   };
 
   return (
@@ -48,6 +57,7 @@ export default function ProductCard(props) {
           <TextInput
             type="number"
             placeholder="Cantidad"
+            min={0}
             onChange={(event) => setCantidad(event.target.value)}
           ></TextInput>
           <a

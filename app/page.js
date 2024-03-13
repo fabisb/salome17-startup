@@ -8,6 +8,10 @@ export default function Home() {
   return (
     <>
       <NavBarComp></NavBarComp>
+      {/* https://flowbite.com/docs/components/alerts/#javascript-behaviour */}
+      <div className="p-4 mb-4 text-sm text-green-800 rounded-lg  bg-green-50 dark:bg-gray-800 dark:text-green-400 sticky top-0 z-30 hidden" role="alert">
+  <span className="font-medium">Success alert!</span> Change a few things up and try submitting again.
+</div>
       <main className="justify-center grid bg-gradient-to-r from-orange-200 to-red-400 p-2">
         <div className="grid md:grid-cols-3 sm:grid-cols-2 gap-4">
           <ProductCard imagen='alive.jpg' id='1' name="Algodon Alive (100 g)" precio='10'></ProductCard>
