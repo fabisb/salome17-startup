@@ -27,10 +27,10 @@ export default function ProductCard(props) {
     <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
       <a>
         <Image
-          width="800"
-          height="800"
+          width={800}
+          height={800}
           className="w-full h-auto p-8 rounded-t-lg"
-          src="/img/Bolsa-Plastica.jpg"
+          src={"/productos/"+props.imagen}
           alt="product image"
         />
       </a>
