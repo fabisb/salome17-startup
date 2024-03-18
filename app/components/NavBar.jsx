@@ -13,7 +13,7 @@ export function NavBarComp() {
       <NavbarBrand as={Link} href="/">
         <img
           src="/img/icon.jpg"
-          className="mr-3 h-12 sm:h-16"
+          className="rounded-lg mr-3 h-12 sm:h-16"
           alt="Salome 17 Logo"
         />
         <span className="bg-gradient-to-r from-orange-400 to-red-600 bg-clip-text text-transparent self-center whitespace-nowrap text-2xl font-semibold dark:text-white">
