@@ -29,7 +29,6 @@ export function NavBarComp() {
           Carrito
         </NavbarLink>
       </NavbarCollapse>
-    
     </Navbar>
   );
 }

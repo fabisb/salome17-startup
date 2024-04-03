@@ -1,7 +1,7 @@
 
-import { NavBarComp } from "./components/navBar";
-import ProductCard from "./components/productCard";
-import { WsSticky } from "./components/wsSticky";
+import { NavBarComp } from "./components/NavBar";
+import ProductCard from "./components/ProductCard";
+import { WsSticky } from "./components/WsSticky";
 
 export default function Home() {
 
