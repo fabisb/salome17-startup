@@ -13,8 +13,10 @@ export default function Carrito() {
   const router = useRouter();
 
   useEffect(() => {
+    setProductos(JSON.parse(localStorage.getItem("productos")));
     return () => {
       setProductos(JSON.parse(localStorage.getItem("productos")));
+      console.log(productos)
     };
   }, []);
   const eliminarProducto = (id) => {
