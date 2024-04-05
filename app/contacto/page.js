@@ -33,7 +33,7 @@ export default function Contacto() {
             <Card
               className="max-w-sm"
               imgAlt="Meaningful alt text for an image that is not purely decorative"
-              imgSrc="/img/Whats.webp"
+              imgSrc="/img/whats.webp"
             >
               <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                 WhatsApp
@@ -44,7 +44,9 @@ export default function Contacto() {
             </Card>
           </Link>
         </div>
-        <p className="p-3 bg-white my-5 rounded-md font-semibold text-xl">Mantente en contacto con nuestros asesores en nuestras redes sociales!</p>
+        <p className="p-3 bg-white my-5 rounded-md font-semibold text-xl">
+          Mantente en contacto con nuestros asesores en nuestras redes sociales!
+        </p>
       </main>
     </div>
   );

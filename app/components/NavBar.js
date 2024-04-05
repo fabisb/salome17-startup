@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import {
   Navbar,
@@ -6,8 +8,16 @@ import {
   NavbarLink,
   NavbarToggle,
 } from "flowbite-react";
+import { useEffect, useState } from "react";
 
 export function NavBarComp() {
+  const [productos, setProductos] = useState([]);
+  useEffect(() => {
+    setProductos(JSON.parse(localStorage.getItem("productos")));
+    return () => {
+      setProductos(JSON.parse(localStorage.getItem("productos")));
+    };
+  }, []);
   return (
     <Navbar className="w-full" fluid rounded>
       <NavbarBrand as={Link} href="/">
@@ -26,7 +36,7 @@ export function NavBarComp() {
         <NavbarLink href="/contacto">Contacto</NavbarLink>
         <NavbarLink href="/about">Sobre nosotros</NavbarLink>
         <NavbarLink href="/carrito" className="text-red-600">
-          Carrito
+          Carrito { productos?.length > 0 ? `(${productos?.length})` : ""}
         </NavbarLink>
       </NavbarCollapse>
     </Navbar>

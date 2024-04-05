@@ -28,7 +28,7 @@ export default function Carrito() {
       }
       const pedido = productos.map(
         (pr) =>
-          `${pr.id}. ${pr.nombre}: Cantidad: ${
+          `. ${pr.nombre}: Cantidad: ${
             pr.cantidad
           } - Precio Unitario: ${pr.precio}$ - TOTAL: ${(
             pr.precio * pr.cantidad
@@ -42,7 +42,8 @@ export default function Carrito() {
         "\n \n" +
         `TOTAL PEDIDO: ${productos
           .map((pr) => parseFloat(pr.precio).toFixed(2) * parseInt(pr.cantidad))
-          .reduce((a, b) => a + b)}$`;
+          .reduce((a, b) => a + b)
+          .toFixed(2)}$`;
       console.log("🚀 ~ EnviarPedido ~ pedidoCadena:", pedidoCadena);
       window.open(
         "https://wa.me/584126443690?text=" + encodeURI(pedidoCadena),
@@ -140,7 +141,8 @@ export default function Carrito() {
                             parseFloat(pr.precio).toFixed(2) *
                             parseInt(pr.cantidad)
                         )
-                        .reduce((a, b) => a + b)}
+                        .reduce((a, b) => a + b)
+                        .toFixed(2)}
                       $
                     </Table.Cell>
                   </Table.Row>
