@@ -1,9 +1,6 @@
 "use client";
-import Image from "next/image";
 import { NavBarComp } from "../components/NavBar";
-import { WsSticky } from "../components/WsSticky";
 import { Button, Card } from "flowbite-react";
-import Link from "next/link";
 import { Table } from "flowbite-react";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
@@ -178,7 +175,7 @@ export default function Carrito() {
                   data-twe-ripple-color="light"
                   className="mb-2 flex rounded bg-[#128c7e] px-6 py-2.5 text-xl font-medium uppercase leading-normal text-white shadow-md transition duration-150 ease-in-out hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg"
                 >
-                  <span className=" e-2 [&>svg]:h-9 [&>svg]:w-9">
+                  <span className="e-2 [&>svg]:h-9 [&>svg]:w-9">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="currentColor"
