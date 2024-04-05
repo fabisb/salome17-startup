@@ -9,7 +9,7 @@ export default function About() {
   return (
     <>
       <NavBarComp></NavBarComp>
-      <main className="   bg-gradient-to-r from-orange-200 to-red-400 p-2">
+      <main className="bg-gradient-to-r from-orange-200 to-red-400 p-2">
         <div className="container flex justify-center">
           <Card
             className="max-w-md"
