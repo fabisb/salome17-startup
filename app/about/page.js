@@ -36,7 +36,6 @@ export default function About() {
           </Card>
         </div>
       </main>
-      <WsSticky></WsSticky>
     </>
   );
 }
