@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export default function Contacto() {
   return (
-    <div className="h-ful">
+    <div className="h-full">
       <NavBarComp></NavBarComp>
       <main className="justify-center grid bg-gradient-to-r h-full from-orange-200 to-red-400 p-2">
         <div className="grid md:grid-cols-2 sm:grid-cols-2 gap-4">
@@ -14,7 +14,7 @@ export default function Contacto() {
             <Card
               className="max-w-sm"
               imgAlt="Meaningful alt text for an image that is not purely decorative"
-              imgSrc="/img/qrInsta.png"
+              imgSrc="/img/insta.png"
             >
               <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                 Instagram
@@ -33,7 +33,7 @@ export default function Contacto() {
             <Card
               className="max-w-sm"
               imgAlt="Meaningful alt text for an image that is not purely decorative"
-              imgSrc="/img/qr1.jpg"
+              imgSrc="/img/Whats.webp"
             >
               <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                 WhatsApp
@@ -44,7 +44,7 @@ export default function Contacto() {
             </Card>
           </Link>
         </div>
-        <WsSticky></WsSticky>
+        <p className="p-3 bg-white my-5 rounded-md font-semibold text-xl">Mantente en contacto con nuestros asesores en nuestras redes sociales!</p>
       </main>
     </div>
   );

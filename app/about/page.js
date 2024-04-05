@@ -9,10 +9,10 @@ export default function About() {
   return (
     <>
       <NavBarComp></NavBarComp>
-      <main className="   bg-gradient-to-r from-orange-200 to-red-400 p-2">
-        <div className="container flex justify-center">
+      <main className="bg-gradient-to-r from-orange-200 to-red-400 p-2">
+        <div className="flex justify-center">
           <Card
-            className="max-w-md"
+            className="max-w-lg"
             imgAlt="Salome 17 logo"
             imgSrc="/img/icon.jpg"
           >

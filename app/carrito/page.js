@@ -16,7 +16,6 @@ export default function Carrito() {
     setProductos(JSON.parse(localStorage.getItem("productos")));
     return () => {
       setProductos(JSON.parse(localStorage.getItem("productos")));
-      console.log(productos)
     };
   }, []);
   const eliminarProducto = (id) => {
@@ -57,9 +56,14 @@ export default function Carrito() {
     }
   };
   return (
-    <div>
+    <div className="h-full w-full">
+      <style jsx global>{`
+      body {
+        width: 100%;
+      }
+    `}</style>
       <NavBarComp></NavBarComp>
-      <main className="bg-gradient-to-r h-full from-orange-200 to-red-400 p-2">
+      <main className="bg-gradient-to-r from-orange-200 to-red-400 p-2">
         <div className=" overflow-x-auto">
           <Table striped>
             <Table.Head>
@@ -154,7 +158,18 @@ export default function Carrito() {
         {productos ? (
           productos.length > 0 ? (
             <div className="text-center my-5 grid grid-cols-2 gap-4">
-              <div>01</div>
+              <div>
+                <Link   target="_blank"
+            href={
+              "/img/cuentas.jpg"
+            }>
+                <img
+                  class="h-auto max-w-lg rounded-lg"
+                  src="/img/cuentas.jpg"
+                  alt="Cuentas bancarias"
+                  ></img>
+                  </Link>
+              </div>
               <div>
                 <button
                   type="button"
