@@ -4,6 +4,7 @@ import { Button, Card } from "flowbite-react";
 import { Table } from "flowbite-react";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function Carrito() {
   const [productos, setProductos] = useState([]);
@@ -55,10 +56,10 @@ export default function Carrito() {
   return (
     <div className="h-full w-full">
       <style jsx global>{`
-      body {
-        width: 100%;
-      }
-    `}</style>
+        body {
+          width: 100%;
+        }
+      `}</style>
       <NavBarComp></NavBarComp>
       <main className="bg-gradient-to-r from-orange-200 to-red-400 p-2">
         <div className=" overflow-x-auto">
@@ -156,16 +157,13 @@ export default function Carrito() {
           productos.length > 0 ? (
             <div className="text-center my-5 grid grid-cols-2 gap-4">
               <div>
-                <Link   target="_blank"
-            href={
-              "/img/cuentas.jpg"
-            }>
-                <img
-                  class="h-auto max-w-lg rounded-lg"
-                  src="/img/cuentas.jpg"
-                  alt="Cuentas bancarias"
+                <Link target="_blank" href={"/img/cuentas.jpg"}>
+                  <img
+                    class="h-auto max-w-lg rounded-lg"
+                    src="/img/cuentas.jpg"
+                    alt="Cuentas bancarias"
                   ></img>
-                  </Link>
+                </Link>
               </div>
               <div>
                 <button
