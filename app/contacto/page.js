@@ -47,6 +47,12 @@ export default function Contacto() {
         <p className="p-3 bg-white my-5 rounded-md font-semibold text-xl">
           Mantente en contacto con nuestros asesores en nuestras redes sociales!
         </p>
+         <Link  target="_blank"
+            href={
+              "https://github.com/fabisb"
+            }>
+          <p className="font-semibold p-3 rounded-md bg-white  text-xl"> &#128187; &#128073; Fabi</p>
+          </Link>
       </main>
     </div>
   );

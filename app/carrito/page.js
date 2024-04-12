@@ -158,15 +158,7 @@ export default function Carrito() {
         {productos ? (
           productos.length > 0 ? (
             <div className="text-center my-5 grid grid-cols-2 gap-4">
-              <div>
-                <Link target="_blank" href={"/img/cuentas.jpg"}>
-                  <img
-                    class="h-auto max-w-lg rounded-lg"
-                    src="/img/cuentas.jpg"
-                    alt="Cuentas bancarias"
-                  ></img>
-                </Link>
-              </div>
+       
               <div>
                 <button
                   type="button"
